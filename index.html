@@ -5,12 +5,38 @@
 		<title>Pong</title>
 	</head>
 	<body>
+		<nav>
+			<p>COURT: </p>
+			<ul>
+				<li onclick="changeCourt(this.innerHTML)">1</li>
+				<li onclick="changeCourt(this.innerHTML)">2</li>
+				<li onclick="changeCourt(this.innerHTML)">3</li>
+				<li onclick="changeCourt(this.innerHTML)">4</li>
+				<li onclick="changeCourt(this.innerHTML)">5</li>
+			</ul>
+		</nav>
 		<div class="game-wrapper">
 			<h1>Pong</h1>
 			<div id="game"></div>
 			<!-- Rough-out your SVG mark-up here to start... -->
 		</div>
 		<script type="text/javascript" src="build/bundle.js"></script>
+		<script>
+			const courtButtons = document.getElementsByTagName('li');
+
+			function changeCourt(e){
+				let selected = e;
+				let gameboard = document.getElementById('game');
+				gameboard.style.backgroundImage = "url(./src/images/"+selected+".jpg)";
+
+				for(var i=0; i<courtButtons.length; i++){
+					courtButtons[i].classList.remove('active');
+					if(courtButtons[i].innerHTML == selected){
+						courtButtons[i].classList.add('active');
+					}
+				}
+			}
+		</script>
 	</body>
 </html>
 
