@@ -6,7 +6,7 @@ export default class Board {
     }
     render(svg) {
         let rect = document.createElementNS(SVG_NS, 'rect');
-        rect.setAttributeNS(null, 'fill','transparent');
+        rect.setAttributeNS(null, 'fill','transparent');  //changed to transparent from black so the image of the court would show up.
         rect.setAttributeNS(null, 'width', this.width);
         rect.setAttributeNS(null, 'height', this.height);
     
